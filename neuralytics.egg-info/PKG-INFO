@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: neuralytics
+Version: 0.1
+Summary: Una biblioteca para machine learning y deep learning
+Home-page: https://github.com/Ryuksito/neuralytics
+Author: 
+Author-email: alanhd1302@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
+
+UNKNOWN
+
