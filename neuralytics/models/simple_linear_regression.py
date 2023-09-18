@@ -45,8 +45,6 @@ class SimpleLinearRegression():
         return (x - mean) / std
 
     def _unnormalize(self,x, std:np.float64, mean:np.float64):
-        print(f'mean: {mean}, std: {std}')
-        print(f'unnorm{x}: ', (x * std) + mean)
         return (x * std) + mean
 
     def fit(self, x:np.ndarray, y:np.ndarray, epochs:int=10, lr:float=0.01, batch_size:int=32):
