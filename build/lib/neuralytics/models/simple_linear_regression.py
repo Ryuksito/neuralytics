@@ -95,7 +95,7 @@ class SimpleLinearRegression():
                 
                 # print(loadbar)
                 print(f'\033[F\033[K', end='')
-                print(f'Epoch: {epoch}, {"="*loadbar}>{":"*(50-loadbar)}, [{chars[char]}] mse: {mse*100:0.4}')
+                print(f'Epoch: {epoch}, {"="*loadbar}>{":"*(50-loadbar)}, [{chars[char]}] mse: {mse:0.4}')
             print('\n')    
             # print(f'{"-"*50}{"-"*50}\n')
 

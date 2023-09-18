@@ -58,7 +58,7 @@ class LinearRegression():
                 if char >= 4:
                     char = 0
                 print(f'\033[F\033[K', end='')
-                print(f'Epoch: {epoch}, {"="*loadbar}>{":"*(50-loadbar)}, [{chars[char]}] mse: {mse*100:0.4}')
+                print(f'Epoch: {epoch}, {"="*loadbar}>{":"*(50-loadbar)}, [{chars[char]}] mse: {mse:0.4}')
             not oneline_logs and print('\n')
 
         return data
