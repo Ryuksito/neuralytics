@@ -14,6 +14,7 @@ LICENSE = 'MIT'
 # Dependencias requeridas
 REQUIRES = [
     'numpy',
+    'random'
 ]
 
 DESCRIPTION = 'Una biblioteca para machine learning y deep learning' 
@@ -21,7 +22,8 @@ LONG_DESCRIPTION = (HERE / "README.md").read_text(encoding='utf-8')
 LONG_DESC_TYPE = "text/markdown"
 
 INSTALL_REQUIRES = [
-    'numpy'
+    'numpy',
+    'random'
 ]
 
 setup(

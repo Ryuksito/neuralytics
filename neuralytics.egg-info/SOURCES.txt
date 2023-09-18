@@ -7,6 +7,8 @@ neuralytics.egg-info/dependency_links.txt
 neuralytics.egg-info/requires.txt
 neuralytics.egg-info/top_level.txt
 neuralytics/models/__init__.py
+neuralytics/models/linear_regresion.py
 neuralytics/models/simple_linear_regression.py
 neuralytics/preprocessing/__init__.py
+neuralytics/preprocessing/standard_scaler.py
 neuralytics/utils/__init__.py

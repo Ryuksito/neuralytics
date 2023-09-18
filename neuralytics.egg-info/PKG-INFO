@@ -17,5 +17,7 @@ Classifier: Programming Language :: Python :: 3.8
 Classifier: Programming Language :: Python :: 3.9
 Description-Content-Type: text/markdown
 
-UNKNOWN
+# neuralytics
+
+## how to install with pip: pip install git+https://github.com/Ryuksito/neuralytics.git
 
