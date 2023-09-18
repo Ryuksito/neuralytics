@@ -14,7 +14,6 @@ LICENSE = 'MIT'
 # Dependencias requeridas
 REQUIRES = [
     'numpy',
-    'random'
 ]
 
 DESCRIPTION = 'Una biblioteca para machine learning y deep learning' 
