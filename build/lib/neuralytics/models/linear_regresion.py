@@ -67,7 +67,6 @@ class LinearRegression():
     def predict(self, x:np.ndarray):
         x = self._normalize(x, self.x_mean, self.x_std)
         return self._unnormalize(np.dot(x, self.w) + self.b, self.y_mean, self.y_std)
-        pass
 
     def _predict(self,x:np.ndarray):
         return np.dot(x,self.w) + self.b

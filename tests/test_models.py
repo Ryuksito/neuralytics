@@ -81,7 +81,9 @@ class TestSimpleLinearRegression(unittest.TestCase):
         w = np.random.rand(x.shape[1])
         print(w.shape)
         y = np.array([np.dot(xi,w) - 7 for xi in x])
-        print(y.shape)
+
+
+        exit()
 
         model = LinearRegression()
         mse,epoch = model.fit(batch_size=1000, epochs=100, lr=0.001, x=x, y=y, oneline_logs=not True)
@@ -100,7 +102,8 @@ class TestSimpleLinearRegression(unittest.TestCase):
         print('---')
         print(y[0])
 
-
+    def test_nn(self):
+        from neuralytics.models.nn import Secuencial
 
 if __name__ == '__main__':
     unittest.main()
