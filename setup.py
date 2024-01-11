@@ -14,6 +14,7 @@ LICENSE = 'MIT'
 # Dependencias requeridas
 REQUIRES = [
     'numpy',
+    'tqdm'
 ]
 
 DESCRIPTION = 'Una biblioteca para machine learning y deep learning' 
@@ -22,6 +23,7 @@ LONG_DESC_TYPE = "text/markdown"
 
 INSTALL_REQUIRES = [
     'numpy',
+    'tqdm'
 ]
 
 setup(
