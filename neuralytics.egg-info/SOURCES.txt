@@ -9,6 +9,16 @@ neuralytics.egg-info/top_level.txt
 neuralytics/models/__init__.py
 neuralytics/models/linear_regresion.py
 neuralytics/models/simple_linear_regression.py
+neuralytics/models/nn/__init__.py
+neuralytics/models/nn/activation_functions.py
+neuralytics/models/nn/loss_functions.py
+neuralytics/models/nn/secuencial.py
+neuralytics/models/nn/layers/__init__.py
+neuralytics/models/nn/layers/abstract_layer.py
+neuralytics/models/nn/layers/batch_norm.py
+neuralytics/models/nn/layers/dense.py
+neuralytics/models/nn/layers/flatten.py
 neuralytics/preprocessing/__init__.py
+neuralytics/preprocessing/onehot.py
 neuralytics/preprocessing/standard_scaler.py
 neuralytics/utils/__init__.py
