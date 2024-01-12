@@ -14,6 +14,7 @@ class TestSimpleLinearRegression(unittest.TestCase):
         from neuralytics.models.nn.layers import Dense
         from neuralytics.models.nn import ReLU, MSE
 
+
         
         #layers
 
@@ -44,7 +45,7 @@ class TestSimpleLinearRegression(unittest.TestCase):
         # ruido = np.random.normal(0, desviacion_estandar, y.shape)
         # y = y + ruido
 
-        
+
 
         model = Secuencial(layers=[dense1, dense2, dense3])
 

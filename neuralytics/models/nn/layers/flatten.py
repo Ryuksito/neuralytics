@@ -3,6 +3,8 @@ from .abstract_layer import AbstractLayer
 
 class Flatten():
 
+    nType = 'norm'
+
     def __init__(self, input_shape: tuple, name:str='Flatten'):
         if not isinstance(input_shape, (tuple, list)): raise Exception('input_shape must be a tuple or list object')
         elif(len(input_shape) <= 1): raise Exception('one-dimensional arrays cannot be flattened')

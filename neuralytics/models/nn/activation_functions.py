@@ -2,6 +2,7 @@ import numpy as np
 
 class ReLU:
     Z='z'
+    nType = 'act'
     def __new__(cls, z=None):
         if z is not None:
             return np.maximum(z, 0)
@@ -17,6 +18,7 @@ class ReLU:
 
 class Sigmoid:
     Z = 'z'
+    nType = 'activation'
 
     def __new__(cls, z=None):
         if z is not None:

@@ -4,6 +4,8 @@ from .abstract_layer import AbstractLayer
 
 class Dense(AbstractLayer):
 
+    nType = 'layer'
+
     def __init__(self, input_shape:tuple, neurons:int, activation:callable=None, name:str='Relu'):
         super().__init__(input_shape, neurons, activation)
         self.name = name
@@ -28,10 +30,10 @@ class Dense(AbstractLayer):
         self.a = self.z
         return self.a
     
-    def backward(self, lr:float, deltaL_i:np.ndarray, aL_i:np.ndarray, wL:np.ndarray, daL_i_dzL_i:np.ndarray, i:int) -> tuple: # (deltaL_1,w,b)
+    def backward(self, lr:float, deltaL_1:np.ndarray, aL_1:np.ndarray, wL:np.ndarray, daL_1_dzL_1:np.ndarray, i:int) -> tuple: # (deltaL_1,w,b)
         # calculo del error
-        ew =  deltaL_i.T @ aL_i
-        eb = deltaL_i
+        ew =  deltaL_1.T @ aL_1
+        eb = deltaL_1
         eb = np.sum(eb, axis=0, keepdims=True)
 
         w = self.w - ew.T * lr
@@ -39,10 +41,10 @@ class Dense(AbstractLayer):
 
         #calculo de delta
         if i != 0:
-            deltaL_i = (deltaL_i @ wL) * daL_i_dzL_i
+            deltaL_1 = (deltaL_1 @ self.w.T) * daL_1_dzL_1
         else: 
-            deltaL_i = None
+            deltaL_1 = None
         
-        return  (deltaL_i, w, b)
+        return  (deltaL_1, w, b)
     
     
