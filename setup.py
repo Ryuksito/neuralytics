@@ -4,7 +4,7 @@ from setuptools import find_packages, setup
 HERE = pathlib.Path(__file__).parent
 
 # Información de la biblioteca
-VERSION = '0.1'
+VERSION = '0.01'
 PACKAGE_NAME = 'neuralytics'
 AUTHOR = ''
 AUTHOR_EMAIL = 'alanhd1302@gmail.com'
