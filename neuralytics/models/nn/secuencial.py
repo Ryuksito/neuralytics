@@ -44,21 +44,30 @@ class Secuencial:
     def _backpropagation(self, lr, x, y):
         #backpropagation
         temp_wb = []
-        deltaL_1 = self.loss_function.df(y,self.layers[-1].a) * (self.layers[-1].activation.df(self.layers[-1].z) if hasattr(self.layers[-1], 'activation') and self.layers[-1].activation != None else np.ones(self.layers[-1].a.shape))
+
+        if self.layers[-1].nType == 'act':
+            deltaL_1 = self.loss_function.df(y, self.layers[-1].a) * self.layers[-1].df(self.layers[-2].a)
+        else:
+            deltaL_1 = self.loss_function.df(y, self.layers[-1].a) * np.ones(self.layers[-1].a.shape)
+        
+        # pdb.set_trace()
         
         for i,l in enumerate(reversed(self.layers)):
 
             i = len(self.layers)- 1 - i
+            print(f'Layer L{i-2}\n{l}')
+            # pdb.set_trace()
 
-            if not isinstance(l, (AbstractLayer, Dense)): 
-                temp_wb.append((None,None))
-                continue
-
-            aL_1 = (self.layers[i-1].a if i != 0 else x) # aL-i
-            wL = l.w.T
-            daL_1_dzL_1 = (self.layers[i-1].activation.df(self.layers[i-1].z) if hasattr(self.layers[i-1], 'activation') and self.layers[i-1].activation != None else np.ones(self.layers[i-1].a.shape))
-
-            deltaL_1, w, b = l.backward(lr, deltaL_1, aL_1, wL, daL_1_dzL_1, i) # learning rate, delta, 
+            aL_1 = (self.layers[i-1].a if i != 0 else x)
+            # pdb.set_trace()
+            if self.layers[-1].nType == 'act':
+                daL_1_dzL_1 = self.layers[i-1].activation.df(self.layers[i-2].z)
+            else:
+                daL_1_dzL_1 = np.ones(self.layers[i-1].a.shape)
+            pdb.set_trace()
+          
+            deltaL_1, w, b = l.backward(lr, deltaL_1, aL_1, daL_1_dzL_1, i) # learning rate, delta, 
+            pdb.set_trace()
 
 
             temp_wb.append((w,b))
@@ -67,10 +76,7 @@ class Secuencial:
                 
     def _update(self, wb:list):
         for i,l in enumerate(reversed(self.layers)):
-          if not isinstance(l, (AbstractLayer, Dense)): 
-              continue
-          l.set_weights(wb[i][0],wb[i][1])
-        pass           
+          l.set_weights(wb[i])        
 
     def add(self, layer):
         self.layers.append(layer)

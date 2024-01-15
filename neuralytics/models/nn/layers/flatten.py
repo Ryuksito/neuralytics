@@ -4,6 +4,7 @@ from .abstract_layer import AbstractLayer
 class Flatten():
 
     nType = 'norm'
+    layer_name = 'flatten'
 
     def __init__(self, input_shape: tuple, name:str='Flatten'):
         if not isinstance(input_shape, (tuple, list)): raise Exception('input_shape must be a tuple or list object')
@@ -20,3 +21,12 @@ class Flatten():
     def __call__(self, x: np.ndarray):
         self.a = x.reshape(-1,self.flattened_shape)
         return self.a
+    
+    def get_weights(self):
+        return None
+
+    def set_weights(self, parameters:tuple):
+        pass
+    
+    def backward(self, lr:float, deltaL_1: np.ndarray, aL_1:np.ndarray, daL_1_dzL_1:np.ndarray, l:int):
+        return (deltaL_1.reshape(aL_1), None, None)

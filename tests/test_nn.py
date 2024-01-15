@@ -11,25 +11,28 @@ class TestSimpleLinearRegression(unittest.TestCase):
     def test_nn_cf(self):
         import numpy as np
         from neuralytics.models.nn import Secuencial
-        from neuralytics.models.nn.layers import Dense
-        from neuralytics.models.nn import ReLU, MSE
+        from neuralytics.models.nn.layers import Dense, ReLu, BatchNorm
+        from neuralytics.models.nn import MSE
 
 
         
         #layers
 
-        dense1 = Dense(activation=ReLU, input_shape=(1), neurons=3, name='dense1')
+        dense1 = Dense(input_shape=(1), neurons=3, name='dense1')
 
 
-        dense2 = Dense(activation=ReLU, input_shape=(1,3), neurons=2, name='dense2')
+        dense2 = Dense(input_shape=(1,3), neurons=2, name='dense2')
+        batchNorm2 = BatchNorm(neurons=2, e=1e-8, name='batchNorm2')
 
 
         dense3 = Dense(input_shape=(1,2), neurons=1, name='dense3')
 
+        print(f'Initial state: \n{dense1}\n{dense2}\n{batchNorm2}\n{dense3}')
+
         
 
         #data
-        data_len = 9
+        data_len = 10
         data_step = 5
         x = np.array([((i-20)) for i in range(0,data_len*data_step,data_step)]).reshape(data_len,1)
         y = np.array([((i*9) / 5) + 32 for i in x]).reshape(data_len,1)
@@ -47,10 +50,17 @@ class TestSimpleLinearRegression(unittest.TestCase):
 
 
 
-        model = Secuencial(layers=[dense1, dense2, dense3])
+        model = Secuencial(layers=[
+            dense1, 
+            dense2, 
+            batchNorm2,
+            ReLu(),
+            dense3
+        ])
 
         model.compile(loss_function=MSE)
-        model.fit(x=x, y=y,epochs=1000,lr=0.01, batch_size=10)
+        model.fit(x=x, y=y,epochs=1,lr=0.01)
+        print(f'final state: \n{dense1}\n{dense2}\n{batchNorm2}\n{dense3}')
 
 
         print(x)
